@@ -19,6 +19,10 @@ Create a file called `tenant.json` with the following properties
 }
 ```
 
+Obviously you'll need to create an application for this in Azure AD.  It's
+pretty simple, just create a bare minimum app and create an API token.
+Then make `Sites.Read.All` the only API permission for the app.
+
 Run `get-id.js` to get a temporary authentication token:
 
 ```
