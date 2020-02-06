@@ -1,0 +1,23 @@
+{
+  "name": "spo-headless-cms",
+  "private": true,
+  "description": "Headless CMS with Next.js and SharePoint Online",
+  "main": "index.js",
+  "scripts": {
+    "build": "next build && next export"
+  },
+  "keywords": [
+    "SPO",
+    "SharePoint",
+    "headless CMS",
+    "CMS"
+  ],
+  "author": "Olli Vanhoja <olli.vanhoja@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-unfetch": "3.0.0",
+    "next": "9.2.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  }
+}
