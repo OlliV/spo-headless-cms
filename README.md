@@ -34,7 +34,7 @@ Copy the `access_token` printed as we'll need it next.
 Now you can run the build:
 
 ```
-$ ACCESS_TTOKEN='YOU_KNOW_THIS' SITE_ID='YOUR_SITE_ID' yarn build
+$ ACCESS_TOKEN='YOU_KNOW_THIS' SITE_ID='YOUR_SITE_ID' yarn build
 ```
 
 The `SITE_ID` is a bit trickier to get, one way is to use the
