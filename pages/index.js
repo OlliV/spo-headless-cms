@@ -27,7 +27,8 @@ const Index = ({ pages }) => (
 )
 
 Index.getInitialProps = async function() {
-	const res = await fetch(`https://graph.microsoft.com/beta/sites/${process.env.SITE_ID}/pages`, {
+	const filter = `pageLayout eq 'Article' and publishingState/level eq 'published'`;
+	const res = await fetch(`https://graph.microsoft.com/beta/sites/${process.env.SITE_ID}/pages?$filter=${filter}`, {
 		headers: {
 			Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
 		}
@@ -35,7 +36,7 @@ Index.getInitialProps = async function() {
 
 	const { value: pages } = await res.json();
 
-	return { pages: pages.filter((page) => page.pageLayout === 'Article') };
+	return { pages };
 };
 
 export default Index
