@@ -45,3 +45,18 @@ There you should find a property called `id` which you can use directly.
 
 Finally the result will be in the newly created `out` directory that can be
 deployed to production.
+
+If you have `jq` installed and you are using Linux things will be a bit
+easier for you.
+
+**To start dev mode:**
+
+```
+SITE_ID='YOUR_SITE_ID' ./dev.sh
+```
+
+**To run the build:**
+
+```
+SITE_ID=i'YOUR_SITE_ID' ./build.sh
+```

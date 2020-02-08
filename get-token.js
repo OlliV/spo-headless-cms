@@ -27,7 +27,7 @@ async function getToken() {
 		body: `client_id=${clientId}&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=${clientSecret}&grant_type=client_credentials`
 	});
 
-	return res.json();
+	return process.stdout.isTTY ? res.json() : res.text();
 }
 
 getToken().then(console.log).catch(console.error);
