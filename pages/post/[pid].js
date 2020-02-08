@@ -1,6 +1,6 @@
 import HtmlToReactParser from 'html-to-react';
 import ErrorPage from 'next/error';
-import { getPage } from '../../lib/spo';
+import { getPagesList, getPage } from '../../lib/spo';
 
 const { Parser } = HtmlToReactParser;
 var htmlToReactParser = new Parser();
@@ -29,7 +29,7 @@ const Page = ({ page }) => {
 export async function unstable_getStaticPaths() {
 	console.log('Getting page index');
 
-	const pages = await getPages();
+	const pages = await getPagesList();
 
 	return pages.map((p) => `/post/${p.id}`);
 }
