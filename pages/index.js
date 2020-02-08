@@ -1,6 +1,6 @@
-import fetch from 'isomorphic-unfetch';
 import Head from 'next/head';
 import Post from '../components/post';
+import getPages from '../lib/get-pages';
 
 const Index = ({ pages }) => (
 	<>
@@ -16,10 +16,7 @@ const Index = ({ pages }) => (
 			? pages.map(p => (
 				<Post
 					key={p.id}
-					title={p.title}
-					author={p.createdBy.user.displayName}
-					date={`${new Date(p.lastModifiedDateTime)}`}
-					url={p.webUrl}
+					page={p}
 				/>
 			))
 			: null}
@@ -27,16 +24,7 @@ const Index = ({ pages }) => (
 )
 
 Index.getInitialProps = async function() {
-	const filter = `pageLayout eq 'Article' and publishingState/level eq 'published'`;
-	const res = await fetch(`https://graph.microsoft.com/beta/sites/${process.env.SITE_ID}/pages?$filter=${filter}`, {
-		headers: {
-			Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
-		}
-	});
-
-	const { value: pages } = await res.json();
-
-	return { pages };
+	return { pages: await getPages() };
 };
 
 export default Index
