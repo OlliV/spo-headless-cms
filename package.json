@@ -4,7 +4,8 @@
   "description": "Headless CMS with Next.js and SharePoint Online",
   "main": "index.js",
   "scripts": {
-    "build": "next build && next export"
+    "build": "next build && next export",
+	"dev": "next dev"
   },
   "keywords": [
     "SPO",
@@ -17,7 +18,7 @@
   "dependencies": {
     "html-to-react": "1.4.2",
     "isomorphic-unfetch": "3.0.0",
-    "next": "9.2.1",
+    "next": "v9.2.2-canary.14",
     "react": "16.12.0",
     "react-dom": "16.12.0"
   }

@@ -23,8 +23,8 @@ const Index = ({ pages }) => (
 	</>
 )
 
-Index.getInitialProps = async function() {
-	return { pages: await getPages() };
-};
+export async function unstable_getStaticProps() {
+	return { props: { pages: await getPages() } };
+}
 
-export default Index
+export default Index;
