@@ -5,6 +5,14 @@ It had to be done by someone.
 
 ![SPO CMS](/cms.png)
 
+Features
+--------
+
+- A front page with a list of all `Article`s from a SharePoint Online site
+- An SSG page that generates static pages for all articles
+- WebParts supported:
+  - `rte`
+
 Building
 --------
 
@@ -46,7 +54,7 @@ There you should find a property called `id` which you can use directly.
 Finally the result will be in the newly created `out` directory that can be
 deployed to production.
 
-If you have `jq` installed and you are using Linux things will be a bit
+If you have `jq` installed and you are using Linux, then things will be a bit
 easier for you.
 
 **To start dev mode:**
@@ -58,5 +66,5 @@ SITE_ID='YOUR_SITE_ID' ./dev.sh
 **To run the build:**
 
 ```
-SITE_ID=i'YOUR_SITE_ID' ./build.sh
+SITE_ID='YOUR_SITE_ID' ./build.sh
 ```
