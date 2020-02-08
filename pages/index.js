@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Post from '../components/post';
-import getPages from '../lib/get-pages';
+import { getPagesList } from '../lib/spo';
 
 const Index = ({ pages }) => (
 	<>
@@ -24,7 +24,7 @@ const Index = ({ pages }) => (
 )
 
 export async function unstable_getStaticProps() {
-	return { props: { pages: await getPages() } };
+	return { props: { pages: await getPagesList() } };
 }
 
 export default Index;

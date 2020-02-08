@@ -1,6 +1,6 @@
 import HtmlToReactParser from 'html-to-react';
 import ErrorPage from 'next/error';
-import getPages from '../../lib/get-pages';
+import { getPage } from '../../lib/spo';
 
 const { Parser } = HtmlToReactParser;
 var htmlToReactParser = new Parser();
@@ -37,9 +37,7 @@ export async function unstable_getStaticPaths() {
 export async function unstable_getStaticProps({ params }) {
 	console.log(`Getting page: ${params.pid}`);
 
-	const pages = await getPages();
-
-	const page = pages.find((p) => p.id === params.pid);
+	const page = await getPage(params.pid);
 
 	if (!page) {
 		throw new Error('Page not found');
