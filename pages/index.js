@@ -23,7 +23,7 @@ const Index = ({ pages }) => (
 	</>
 )
 
-export async function unstable_getStaticProps() {
+export async function getStaticProps() {
 	return { props: { pages: await getPagesList() } };
 }
 

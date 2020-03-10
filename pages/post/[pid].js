@@ -26,15 +26,18 @@ const Page = ({ page }) => {
 	);
 };
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
 	console.log('Getting page index');
 
 	const pages = await getPagesList();
 
-	return pages.map((p) => `/post/${p.id}`);
+	return {
+		paths: pages.map((p) => `/post/${p.id}`),
+		fallback: false
+	};
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
 	console.log(`Getting page: ${params.pid}`);
 
 	const page = await getPage(params.pid);
