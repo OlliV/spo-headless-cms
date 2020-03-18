@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build && next export",
-	"dev": "next dev"
+    "dev": "next dev"
   },
   "keywords": [
     "SPO",
@@ -18,7 +18,7 @@
   "dependencies": {
     "html-to-react": "1.4.2",
     "isomorphic-unfetch": "3.0.0",
-    "next": "9.3.0",
+    "next": "9.3.1",
     "react": "16.13.0",
     "react-dom": "16.13.0"
   }
