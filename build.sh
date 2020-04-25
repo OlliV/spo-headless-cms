@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-temp=`node get-token.js|jq .access_token`
+temp=`node util/get-token.js|jq .access_token`
 temp="${temp%\"}"
 token="${temp#\"}"
 

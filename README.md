@@ -31,10 +31,24 @@ Obviously you'll need to create an application for this in Azure AD.  It's
 pretty simple, just create a bare minimum app and create an API token.
 Then make `Sites.Read.All` the only API permission for the app.
 
+First you need to figure out the ID of your site. It's a bit tricky to
+find, but there is a tool for that
+
+```
+node util/find-site.js My site
+```
+
+Copy the `id` somewhere, we are going to need it later as a value for
+the `SITE_ID` environment variable.
+
+Next up, the actual build:
+
+**The manual way**
+
 Run `get-id.js` to get a temporary authentication token:
 
 ```
-$ node get-id.js
+$ node util/get-id.js
 ```
 
 Copy the `access_token` printed as we'll need it next.
@@ -45,17 +59,28 @@ Now you can run the build:
 $ ACCESS_TOKEN='YOU_KNOW_THIS' SITE_ID='YOUR_SITE_ID' yarn build
 ```
 
-The `SITE_ID` is a bit trickier to get, one way is to use the
-[Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#)
-and use the site search endpoint:
-`GET https://graph.microsoft.com/v1.0/sites?search=human%20readable%20name`.
-There you should find a property called `id` which you can use directly.
+**The more automated way**
+
+Just run:
+
+```
+./build.sh
+```
 
 Finally the result will be in the newly created `out` directory that can be
 deployed to production.
 
 If you have `jq` installed and you are using Linux, then things will be a bit
 easier for you.
+
+Summary
+-------
+
+**Find a site ID:**
+
+```
+node ./util/find-site.js My site
+```
 
 **To start dev mode:**
 

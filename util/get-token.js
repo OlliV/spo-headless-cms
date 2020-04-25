@@ -17,8 +17,7 @@ function readConfig() {
 	}
 }
 
-
-async function getToken() {
+async function getToken(raw = false) {
 	const res = await fetch(`https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`, {
 		method: 'POST',
 		headers: {
@@ -27,7 +26,16 @@ async function getToken() {
 		body: `client_id=${clientId}&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=${clientSecret}&grant_type=client_credentials`
 	});
 
-	return process.stdout.isTTY ? res.json() : res.text();
-}
+	if (!res.ok) {
+		console.error('Auth failed');
+		process.exit(1);
+	}
 
-getToken().then(console.log).catch(console.error);
+	return raw ? res.text() : res.json();
+}
+module.exports = getToken;
+
+// Only print a token if the file was called directly as a command.
+if (require.main === module) {
+	getToken(!process.stdout.isTTY).then(console.log).catch(console.error);
+}
