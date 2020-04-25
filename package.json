@@ -4,8 +4,8 @@
   "description": "Headless CMS with Next.js and SharePoint Online",
   "main": "index.js",
   "scripts": {
-    "build": "next build && next export",
-    "dev": "next dev"
+    "build": "rm -rf out && NEXT_TELEMETRY_DISABLED=1 next build && NEXT_TELEMETRY_DISABLED=1 next export",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev"
   },
   "keywords": [
     "SPO",
