@@ -4,7 +4,7 @@
   "description": "Headless CMS with Next.js and SharePoint Online",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf out && NEXT_TELEMETRY_DISABLED=1 next build && NEXT_TELEMETRY_DISABLED=1 next export",
+    "build": "rm -rf out && NEXT_TELEMETRY_DISABLED=1 next build && ./util/export.sh",
     "dev": "NEXT_TELEMETRY_DISABLED=1 next dev"
   },
   "keywords": [
